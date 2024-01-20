@@ -1,0 +1,55 @@
+.hero-section {
+  position: relative;
+  height: 100vh;
+  background-image: url('../../images/Gurkha1.jpg'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-100%) translateY(-50%);
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  visibility: hidden; /* Start with visibility hidden */
+  animation: slideIn 2s ease-out forwards; /* Add "forwards" to retain final state */
+}
+
+.text-container h1,
+.text-container p {
+  margin: 0; /* Remove default margin for proper centering */
+}
+
+.rectangular-button {
+  background-color: #3498db; /* Set your desired background color */
+  color: #fff; /* Set text color */
+  padding: 10px 20px; /* Adjust padding as needed */
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  margin: 20px 0 10px; 
+  cursor: pointer;
+  font-size: 1.2rem; /* Set font size */
+  transition: background-color 0.3s ease-in-out; /* Add transition effect */
+}
+
+.rectangular-button:hover {
+  background-color: #2980b9; /* Change color on hover */
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%) translateY(-50%);
+  }
+  50% {
+    visibility: visible; /* Make the text visible at the midpoint of the animation */
+    transform: translateX(-50%) translateY(-50%);
+  }
+  100% {
+    visibility: visible; /* Ensure visibility at the end of the animation */
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
