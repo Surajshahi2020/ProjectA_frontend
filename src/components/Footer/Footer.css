@@ -1,11 +1,6 @@
-.flex{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-footer{
-    background-color: #5f875d;
-}
-p {
-    color: white;;
-}
+.footer-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
