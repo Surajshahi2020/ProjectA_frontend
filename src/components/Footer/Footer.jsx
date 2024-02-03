@@ -1,7 +1,6 @@
 import React from "react";
 import {
   EuiHeader,
-  EuiHeaderSectionItem,
   EuiText,
   EuiFlexGroup,
   EuiFlexItem,
