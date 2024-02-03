@@ -1,22 +1,27 @@
 import React from 'react';
+import { EuiFlexGroup, EuiFlexItem, EuiTitle, EuiText, EuiButton } from '@elastic/eui';
 import './Content.css';
 
 const Content = () => {
   return (
-  <div className="hero-section">
-  <div className="text-container">
-    <h1 style={{ fontSize: '2rem', fontWeight: 'bold', color: '#FFD700' }}>NEPAL ARMY</h1>
-    <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'white' }}>
-      We Provide Peace & <span style={{ color: '#FFD700' }}>Freedom</span>
-    </p>
-    <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#FFD700' }}>
-      We Are The Best <span style={{ color: 'white' }}>Strong Military</span> 
-        </p>
-        <div className="buttons-container">
-          <button className="rectangular-button">Rapid Deployment Force</button>
+    <EuiFlexGroup justifyContent="center" alignItems="center" className="hero-section">
+      <EuiFlexItem>
+        <div className="text-container">
+          <EuiTitle size="l">
+            <h1 style={{ fontWeight: 'bold', color: 'white' }}>Welcome to the Nepal Army Confidential Sites</h1>
+          </EuiTitle>
+          <EuiText size="m" style={{ fontWeight: 'bold', color: 'white' }}>
+            Access is restricted to <span style={{ color: 'white' }}>Nepal Army Members only</span>
+          </EuiText>
+          <EuiText size="m" style={{ fontWeight: 'bold', color: 'white' }}>
+            Nepal Army <span style={{ color: 'white' }}>IT Department</span>
+          </EuiText>
+          <div className="buttons-container">
+            <EuiButton fill>Emergency</EuiButton>
+          </div>
         </div>
-  </div>
-</div>
+      </EuiFlexItem>
+    </EuiFlexGroup>
   );
 };
 
