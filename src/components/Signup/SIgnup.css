@@ -1,0 +1,13 @@
+.background{
+    position: relative;
+    height: 90vh;
+    background-image: url('../../images/hacking.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.form-content {
+    background-color: rgb(245 243 243 / 80%);
+    padding: 15px;
+}

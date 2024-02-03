@@ -6,8 +6,11 @@ import {
     EuiFieldPassword,
     EuiButton,
     EuiSpacer,
+    EuiText,
+    EuiIcon,
 } from '@elastic/eui';
 import { useNavigate } from 'react-router-dom';
+import "./Login.css"
 
 const Login = () => {
     const navigate = useNavigate();
@@ -67,34 +70,44 @@ const Login = () => {
 
     const inputStyle = { width: '300px' };
     return (
-        <EuiForm component="form" onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '40px' }}>    
-            <EuiFormRow label="Email" style={{ textAlign: 'center', marginBottom: '10px' }}>
-                <EuiFieldText
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={(e) => handleChange('email', e.target.value)}
-                    style={inputStyle}
-                />
-            </EuiFormRow>
+        <div className='background'>
+            <div className='login-content'>
+            <div className='login-logo' style={{ textAlign: 'center', marginBottom: '15px' }}>
+                    <EuiIcon type="user" size="xxl" />
+                    <EuiText>
+                        <h2>Login Form</h2>
+                    </EuiText>
+                </div>
+                    <EuiForm component="form" onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '10px' }}>    
+                    <EuiFormRow label={<span style={{ color: '#e43164' }}>Email</span>} style={{ textAlign: 'center', marginBottom: '5px' }}>
+                        <EuiFieldText
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={(e) => handleChange('email', e.target.value)}
+                            style={inputStyle}
+                        />
+                    </EuiFormRow>
 
-            <EuiFormRow label="Password" style={{ textAlign: 'center', marginBottom: '10px' }}>
-                <EuiFieldPassword
-                    name="password"
-                    value={formData.password}
-                    onChange={(e) => handleChange('password', e.target.value)}
-                    style={inputStyle}
-                />
-            </EuiFormRow>
-            <EuiSpacer size="m" />
-            <EuiButton type="submit" fill>
-                Login
-            </EuiButton>
-            {success && (
-                <p className="success-message">{success}</p>
-            )}
-            {error && <p className="error-message">{error}</p>}
-        </EuiForm>
+                    <EuiFormRow label={<span style={{ color: '#e43164' }}>Password</span>} style={{ textAlign: 'center', marginBottom: '5px' }}>
+                        <EuiFieldPassword
+                            name="password"
+                            value={formData.password}
+                            onChange={(e) => handleChange('password', e.target.value)}
+                            style={inputStyle}
+                        />
+                    </EuiFormRow>
+                    <EuiSpacer size="m" />
+                    <EuiButton type="submit" fill>
+                        Login
+                    </EuiButton>
+                    {success && (
+                        <p className="success-message">{success}</p>
+                    )}
+                    {error && <p className="error-message">{error}</p>}
+                </EuiForm>
+                </div>
+            </div>
     );
 };
 

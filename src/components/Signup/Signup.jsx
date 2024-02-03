@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Signup.css';
 import {
     EuiForm,
     EuiFormRow,
@@ -8,6 +9,8 @@ import {
     EuiDatePicker,
     EuiButton,
     EuiSpacer,
+    EuiText,
+    EuiIcon,
 } from '@elastic/eui';
 
 const SignupForm = () => {
@@ -83,74 +86,84 @@ const SignupForm = () => {
 
     const inputStyle = { width: '300px' };
     return (
-        <EuiForm component="form" onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '40px' }}>    
-            <EuiFormRow label="Full Name" style={{ textAlign: 'center', marginBottom: '10px' }} isRequired>
-                <EuiFieldText
-                    name="full_name"
-                    value={formData.full_name}
-                    onChange={(e) => handleChange('full_name', e.target.value)}
-                    style={inputStyle}
-                />
-            </EuiFormRow>
-
-            <EuiFormRow label="Phone" style={{ textAlign: 'center', marginBottom: '10px' }}>
-                <EuiFieldText
-                    name="phone"
-                    value={formData.phone}
-                    onChange={(e) => handleChange('phone', e.target.value)}
-                    style={inputStyle}
-                />
-            </EuiFormRow>
-
-            <EuiFormRow label="Email" style={{ textAlign: 'center', marginBottom: '10px' }}>
-                <EuiFieldText
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={(e) => handleChange('email', e.target.value)}
-                    style={inputStyle}
-                />
-            </EuiFormRow>
-
-            <EuiFormRow label="Gender" style={{ textAlign: 'center', marginBottom: '10px' }}>
-                <EuiSelect
-                    name="gender"
-                    options={genderOptions}
-                    value={formData.gender}
-                    onChange={(e) => handleChange('gender', e.target.value)}
-                    style={inputStyle}
-                />
-            </EuiFormRow>
-
-            <EuiFormRow label="Date of Birth" style={{ textAlign: 'center', marginBottom: '10px' }}>
-                <div style={inputStyle}>
-                    <EuiDatePicker
-                        name="date_of_birth"
-                        selected={formData.date_of_birth}
-                        onChange={(date) => handleDateChange('date_of_birth', date)}
-                        dateFormat="YYYY-MM-DD"
-                    />
+        <div className='background'>
+            <div className='form-content'>
+            <div className='login-logo' style={{ textAlign: 'center', marginBottom: '15px' }}>
+                    <EuiIcon type="user" size="xxl" />
+                    <EuiText>
+                        <h2>Signup Form</h2>
+                    </EuiText>
                 </div>
-            </EuiFormRow>
+                <EuiForm component="form"  onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '10px' }}>    
+                    <EuiFormRow label={<span style={{ color: '#e43164' }}>Full Name</span>} style={{ textAlign: 'center',color: 'blue', marginBottom: '5px' }} isRequiblue>
+                        <EuiFieldText
+                            name="full_name"
+                            value={formData.full_name}
+                            onChange={(e) => handleChange('full_name', e.target.value)}
+                            style={inputStyle}
+                        />
+                    </EuiFormRow>
 
-            <EuiFormRow label="Password" style={{ textAlign: 'center', marginBottom: '10px' }}>
-                <EuiFieldPassword
-                    name="password"
-                    value={formData.password}
-                    onChange={(e) => handleChange('password', e.target.value)}
-                    style={inputStyle}
-                />
-            </EuiFormRow>
+                    <EuiFormRow label={<span style={{ color: '#e43164' }}>Phone</span>} style={{ textAlign: 'center', marginBottom: '5px' }}>
+                        <EuiFieldText
+                            name="phone"
+                            value={formData.phone}
+                            onChange={(e) => handleChange('phone', e.target.value)}
+                            style={inputStyle}
+                        />
+                    </EuiFormRow>
 
-            <EuiSpacer size="m" />
-            <EuiButton type="submit" fill>
-                Sign Up
-            </EuiButton>
-            {success && (
-                <p className="success-message">{success}</p>
-            )}
-            {error && <p className="error-message">{error}</p>}
-        </EuiForm>
+                    <EuiFormRow label={<span style={{ color: '#e43164' }}>Email</span>} style={{ textAlign: 'center', marginBottom: '5px' }}>
+                        <EuiFieldText
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={(e) => handleChange('email', e.target.value)}
+                            style={inputStyle}
+                        />
+                    </EuiFormRow>
+
+                    <EuiFormRow label={<span style={{ color: '#e43164' }}>Gender</span>} style={{ textAlign: 'center', marginBottom: '5px' }}>
+                        <EuiSelect
+                            name="gender"
+                            options={genderOptions}
+                            value={formData.gender}
+                            onChange={(e) => handleChange('gender', e.target.value)}
+                            style={inputStyle}
+                        />
+                    </EuiFormRow>
+
+                    <EuiFormRow label={<span style={{ color: '#e43164' }}>Date of Birth</span>} style={{ textAlign: 'center', marginBottom: '5px' }}>
+                        <div style={inputStyle}>
+                            <EuiDatePicker
+                                name="date_of_birth"
+                                selected={formData.date_of_birth}
+                                onChange={(date) => handleDateChange('date_of_birth', date)}
+                                dateFormat="YYYY-MM-DD"
+                            />
+                        </div>
+                    </EuiFormRow>
+
+                    <EuiFormRow label={<span style={{ color: '#e43164' }}>Password</span>} style={{ textAlign: 'center', marginBottom: '5px' }}>
+                        <EuiFieldPassword
+                            name="password"
+                            value={formData.password}
+                            onChange={(e) => handleChange('password', e.target.value)}
+                            style={inputStyle}
+                        />
+                    </EuiFormRow>
+
+                    <EuiSpacer size="m" />
+                    <EuiButton type="submit" fill>
+                        Sign Up
+                    </EuiButton>
+                    {success && (
+                        <p className="success-message">{success}</p>
+                    )}
+                    {error && <p className="error-message">{error}</p>}
+                </EuiForm>
+                </div>
+        </div>
     );
 };
 
