@@ -1,4 +1,15 @@
-.dashboard-content{
-    background-color: rgb(245 243 243 / 70%);
-    padding: 312px;
-}
+.dashboard-content {
+    padding: 21px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-width: 400px;
+    margin: 50px 5px 30px 20px;
+    height: 27vh;
+    color: #e1d2d2;
+  }
+  
+.bar-chart-container {
+    margin-top: 20px;
+  }
