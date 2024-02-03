@@ -49,7 +49,7 @@ const Login = () => {
             const data = await response.json();
 
             if (response.ok) {
-                console.log('Form submitted successfully!');
+                localStorage.setItem("accessToken", JSON.stringify(data.data.access));
                 setSuccess(data.message);
                 setError("");
                 setFormData({

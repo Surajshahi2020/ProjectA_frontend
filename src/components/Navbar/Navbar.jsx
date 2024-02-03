@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { EuiHeader, EuiHeaderSectionItem, EuiHeaderLinks, EuiHeaderLink, EuiButton, EuiAvatar, EuiFlexGroup, EuiFlexItem, EuiText } from '@elastic/eui';
 import { useNavigate } from 'react-router-dom';
-import LogoImage from '../../images/logo.png'; // Import the logo image
+import LogoImage from '../../images/logo.png';
 
 const Navbar = () => {
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const accessToken = JSON.parse(localStorage.getItem("accessToken") || "{}");
+        if (accessToken && accessToken.key) {
+            navigate('/dashboard'); 
+        }
+    }, [navigate]);
 
     const handleLogin = () => {
         navigate('/login');
@@ -12,6 +19,11 @@ const Navbar = () => {
 
     const handleSignup = () => {
         navigate('/signup');
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem("accessToken");
+        navigate('/');
     };
 
     return (
@@ -22,7 +34,7 @@ const Navbar = () => {
 
             <EuiHeaderSectionItem>
                 <EuiHeaderLinks>
-                    <EuiHeaderLink href="#feature1">Dashboard</EuiHeaderLink>
+                    <EuiHeaderLink href="dashboard">Dashboard</EuiHeaderLink>
                     <EuiHeaderLink href="#feature2">Training</EuiHeaderLink>
                     <EuiHeaderLink href="#feature3">Promotion</EuiHeaderLink>
                     <EuiHeaderLink href="#feature3">Tracking</EuiHeaderLink>
@@ -33,22 +45,30 @@ const Navbar = () => {
             </EuiHeaderSectionItem>
 
             <EuiHeaderSectionItem>
-                <EuiFlexGroup responsive={false} gutterSize="s" alignItems="center">
-                    <EuiFlexItem>
-                        <EuiText>
-                            <EuiButton onClick={handleLogin} size="s" fullWidth fill color='primary'>
-                                Login
-                            </EuiButton>
-                        </EuiText>
-                    </EuiFlexItem>
-                    <EuiFlexItem>
-                        <EuiText>
-                            <EuiButton onClick={handleSignup} size="s" fullWidth fill color='danger'>
-                                Signup
-                            </EuiButton>
-                        </EuiText>
-                    </EuiFlexItem>
-                </EuiFlexGroup>
+                {localStorage.getItem("accessToken") ? (
+                    <EuiText>
+                        <EuiButton onClick={handleLogout} size="s" fullWidth fill color='danger'>
+                            Logout
+                        </EuiButton>
+                    </EuiText>
+                ) : (
+                    <EuiFlexGroup responsive={false} gutterSize="s" alignItems="center">
+                        <EuiFlexItem>
+                            <EuiText>
+                                <EuiButton onClick={handleLogin} size="s" fullWidth fill color='primary'>
+                                    Login
+                                </EuiButton>
+                            </EuiText>
+                        </EuiFlexItem>
+                        <EuiFlexItem>
+                            <EuiText>
+                                <EuiButton onClick={handleSignup} size="s" fullWidth fill color='danger'>
+                                    Signup
+                                </EuiButton>
+                            </EuiText>
+                        </EuiFlexItem>
+                    </EuiFlexGroup>
+                )}
             </EuiHeaderSectionItem>
         </EuiHeader>
     );

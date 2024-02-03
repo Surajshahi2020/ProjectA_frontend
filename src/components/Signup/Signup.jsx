@@ -88,13 +88,13 @@ const SignupForm = () => {
     return (
         <div className='background'>
             <div className='form-content'>
-            <div className='login-logo' style={{ textAlign: 'center', marginBottom: '15px' }}>
+            <div className='login-logo' style={{ textAlign: 'center', marginBottom: '1px' }}>
                     <EuiIcon type="user" size="xxl" />
                     <EuiText>
                         <h2>Signup Form</h2>
                     </EuiText>
                 </div>
-                <EuiForm component="form"  onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '10px' }}>    
+                <EuiForm component="form"  onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '5px' }}>    
                     <EuiFormRow label={<span style={{ color: '#e43164' }}>Full Name</span>} style={{ textAlign: 'center',color: 'blue', marginBottom: '5px' }} isRequiblue>
                         <EuiFieldText
                             name="full_name"
