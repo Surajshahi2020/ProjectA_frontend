@@ -1,15 +1,16 @@
 .dashboard-content {
-    padding: 21px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    max-width: 400px;
-    margin: 50px 5px 30px 20px;
-    height: 27vh;
-    color: #e1d2d2;
-  }
-  
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 400px;
+  margin: 20px 5px 4px 2px; /* Adjusted margin */
+  height: 6vh; /* Reduced height */
+  color: #e1d2d2;
+}
+
 .bar-chart-container {
-    margin-top: 20px;
-  }
+  margin-top: 16px; /* Adjusted margin-top */
+}
+
