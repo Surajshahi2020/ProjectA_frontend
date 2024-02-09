@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
-import Box from '@mui/material/Box';
 import 'chart.js/auto';
 import './Dashboard.css';
 
@@ -51,7 +50,8 @@ const Dashboard = () => {
         label: 'Monthly Sales',
         data: [30, 45, 60, 25, 70],
         fill: false,
-        borderColor: 'rgba(75,192,192,1)',
+        // borderColor: 'rgba(75,192,192,1)',
+        borderColor: '',
         tension: 0.4,
       },
     ],
@@ -127,6 +127,7 @@ const Dashboard = () => {
   },
   plugins: {
     legend: {
+      display: false,
       labels: {
         color: 'rgba(255, 255, 255, 0.9)', // Adjust color as needed
       },
@@ -137,17 +138,18 @@ const Dashboard = () => {
   return token ? (
     <div className="background">
       <div className="dashboard-content">
-        <Box display="flex" flexDirection="column" alignItems="center">
+
           <div className="chart" style={{ marginBottom: '4px' }}>
             <Bar data={barChartData} options={barChartOptions} width={400} height={150} />
           </div>
+
           <div className="chart">
             <Doughnut data={pieChartData} options={pieChartOptions} width={250} height={40} />
           </div>
+
           <div className="chart">
             <Line data={lineChartData} options={lineChartOptions} width={400} height={180} />
-          </div>         
-        </Box>
+          </div>   
       </div>
     </div>
   ) : null;
