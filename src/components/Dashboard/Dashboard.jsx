@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 import './Dashboard.css';
+import { EuiFlexGroup, EuiFlexItem } from '@elastic/eui';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -36,13 +37,13 @@ const Dashboard = () => {
       {
         data: [30, 40, 30, 44, 33],
         backgroundColor: ['rgba(255, 99, 132, 0.7)', 'rgba(54, 162, 235, 0.7)', 'rgba(255, 205, 86, 0.7)'],
-        borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 205, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'],  
+        borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 205, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'],
         borderWidth: 2,
       },
     ],
   };
 
-  
+
   const lineChartData = {
     labels: ['January', 'February', 'March', 'April', 'May'],
     datasets: [
@@ -91,65 +92,259 @@ const Dashboard = () => {
   };
 
   const pieChartOptions = {
-  plugins: {
-    legend: {
-      position: 'right',
-      labels: {
-        color: 'rgba(255, 255, 255, 0.9)', // Set color for labels
-        font: {
-          size: 14,
-          weight: 'bold',
+    plugins: {
+      legend: {
+        position: 'right',
+        labels: {
+          color: 'rgba(255, 255, 255, 0.9)', // Set color for labels
+          font: {
+            size: 14,
+            weight: 'bold',
+          },
         },
       },
     },
-  },
-};
+  };
 
   const lineChartOptions = {
-  scales: {
-    x: {
-      grid: {
+    scales: {
+      x: {
+        grid: {
+          display: false,
+        },
+        ticks: {
+          color: 'rgba(255, 255, 255, 0.9)', // Adjust color as needed
+        },
+      },
+      y: {
+        beginAtZero: true,
+        grid: {
+          display: false,
+        },
+        ticks: {
+          color: 'rgba(255, 255, 255, 0.9)', // Adjust color as needed
+        },
+      },
+    },
+    plugins: {
+      legend: {
         display: false,
-      },
-      ticks: {
-        color: 'rgba(255, 255, 255, 0.9)', // Adjust color as needed
-      },
-    },
-    y: {
-      beginAtZero: true,
-      grid: {
-        display: false,
-      },
-      ticks: {
-        color: 'rgba(255, 255, 255, 0.9)', // Adjust color as needed
+        labels: {
+          color: 'rgba(255, 255, 255, 0.9)', // Adjust color as needed
+        },
       },
     },
-  },
-  plugins: {
-    legend: {
-      display: false,
-      labels: {
-        color: 'rgba(255, 255, 255, 0.9)', // Adjust color as needed
-      },
-    },
-  },
-};
+  };
 
   return token ? (
     <div className="background">
-      <div className="dashboard-content">
+      <EuiFlexGroup>
+        <EuiFlexItem>
+          <div className="dashboard-content">
 
-          <div className="chart" style={{ marginBottom: '4px' }}>
-            <Bar data={barChartData} options={barChartOptions} width={400} height={150} />
+            <div className="chart" style={{ marginBottom: '4px' }}>
+              <Bar data={barChartData} options={barChartOptions} width={400} height={150} />
+            </div>
+
+            <div className="chart">
+              <Doughnut data={pieChartData} options={pieChartOptions} width={250} height={40} />
+            </div>
+
+            <div className="chart">
+              <Line data={lineChartData} options={lineChartOptions} width={400} height={180} />
+            </div>
           </div>
+        </EuiFlexItem>
+      </EuiFlexGroup>
 
-          <div className="chart">
-            <Doughnut data={pieChartData} options={pieChartOptions} width={250} height={40} />
-          </div>
-
-          <div className="chart">
-            <Line data={lineChartData} options={lineChartOptions} width={400} height={180} />
-          </div>   
+      <div className="newly-added">
+        <table id="latest-info">
+            <tr>
+              <th>Id</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Created At</th>
+              <th>Created By</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>North/South</td>
+              <td>Simon Crowther</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Paris spécialités</td>
+              <td>Marie Bertrand</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>North/South</td>
+              <td>Simon Crowther</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Paris spécialités</td>
+              <td>Marie Bertrand</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>North/South</td>
+              <td>Simon Crowther</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Paris spécialités</td>
+              <td>Marie Bertrand</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>North/South</td>
+              <td>Simon Crowther</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Paris spécialités</td>
+              <td>Marie Bertrand</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>North/South</td>
+              <td>Simon Crowther</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Paris spécialités</td>
+              <td>Marie Bertrand</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>North/South</td>
+              <td>Simon Crowther</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Paris spécialités</td>
+              <td>Marie Bertrand</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>North/South</td>
+              <td>Simon Crowther</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Paris spécialités</td>
+              <td>Marie Bertrand</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr><tr>
+              <td>1</td>
+              <td>North/South</td>
+              <td>Simon Crowther</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Paris spécialités</td>
+              <td>Marie Bertrand</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr><tr>
+              <td>1</td>
+              <td>North/South</td>
+              <td>Simon Crowther</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Paris spécialités</td>
+              <td>Marie Bertrand</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr><tr>
+              <td>1</td>
+              <td>North/South</td>
+              <td>Simon Crowther</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Paris spécialités</td>
+              <td>Marie Bertrand</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>North/South</td>
+              <td>Simon Crowther</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Paris spécialités</td>
+              <td>Marie Bertrand</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>North/South</td>
+              <td>Simon Crowther</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Paris spécialités</td>
+              <td>Marie Bertrand</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr> <tr>
+              <td>1</td>
+              <td>North/South</td>
+              <td>Simon Crowther</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Paris spécialités</td>
+              <td>Marie Bertrand</td>
+              <td>2080-11-11</td>
+              <td>2080-11-11</td>
+            </tr>
+        </table>
       </div>
     </div>
   ) : null;

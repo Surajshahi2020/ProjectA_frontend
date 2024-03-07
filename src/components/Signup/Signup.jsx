@@ -18,7 +18,7 @@ const SignupForm = () => {
         full_name: '',
         phone: '',
         email: '',
-        gender: '',
+        gender: 'M',
         date_of_birth: '',
         password: '',
     });
@@ -80,7 +80,7 @@ const SignupForm = () => {
     };
 
     const genderOptions = [
-        { value: 'M', text: 'Male' },
+        { value: 'M', text: 'Male'},
         { value: 'F', text: 'Female' },
     ];
 

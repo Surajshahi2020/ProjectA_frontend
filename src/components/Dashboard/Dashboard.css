@@ -5,12 +5,40 @@
   justify-content: flex-start;
   align-items: flex-start;
   max-width: 400px;
-  margin: 20px 5px 4px 2px; /* Adjusted margin */
-  height: 6vh; /* Reduced height */
+  margin: 20px 5px 4px 2px;
+  /* Adjusted margin */
+  height: 6vh;
+  /* Reduced height */
   color: #e1d2d2;
 }
 
-.bar-chart-container {
-  margin-top: 16px; /* Adjusted margin-top */
+.newly-added{
+  margin-left: 35%;
+  margin-right: 2%;
+  height: 83%;
+  background-color: rgb(241, 244, 241);
+  overflow: auto;
 }
 
+#latest-info {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#latest-info td, #latest-info th {
+  border: 1px solid #ddd;
+  padding: 3px;
+}
+
+#latest-info tr:nth-child(even){background-color: #f2f2f2;}
+
+#latest-info tr:hover {background-color: #ddd;}
+
+#latest-info th {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: left;
+  background-color: #b24558;
+  color: white;
+}
