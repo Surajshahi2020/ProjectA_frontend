@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { EuiHeader, EuiHeaderSectionItem, EuiHeaderLinks, EuiHeaderLink, EuiButton, EuiAvatar, EuiFlexGroup, EuiFlexItem, EuiText } from '@elastic/eui';
 import { useNavigate } from 'react-router-dom';
 import LogoImage from '../../images/logo.png';
+import './Navbar.css';
+
 
 const Navbar = () => {
+    const [showSubMenu, setShowSubMenu] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -26,6 +29,11 @@ const Navbar = () => {
         navigate('/');
     };
 
+    const handleProfileClick = () => {
+        setShowSubMenu(!showSubMenu);
+        // navigate('/profile');
+    }
+
     return (
         <EuiHeader className="navbar">
             <EuiHeaderSectionItem border="right">
@@ -41,6 +49,16 @@ const Navbar = () => {
                     <EuiHeaderLink href="#feature3">Budget</EuiHeaderLink>
                     <EuiHeaderLink href="#feature3">Mission</EuiHeaderLink>
                     <EuiHeaderLink href="#feature9">Communication</EuiHeaderLink>
+                    <EuiHeaderLink href='' onClick={handleProfileClick}>
+                        <div className="profile-image">
+                        </div>
+                    </EuiHeaderLink>
+                    {showSubMenu && (
+                        <div className="sub-menu">
+                            <EuiHeaderLink href="/army-detail">Army Detail</EuiHeaderLink>
+                            <EuiHeaderLink href="/education-detail">Education Detail</EuiHeaderLink>
+                        </div>
+                    )}
                 </EuiHeaderLinks>
             </EuiHeaderSectionItem>
 

@@ -6,7 +6,7 @@ import Content from "./components/Content/Content";
 import SignupForm from "./components/Signup/Signup";
 import Login from "./components/Login/Login";
 import Dashboard from "./components/Dashboard/Dashboard";
-
+import ArmyDetail from "./pages/Profile/ArmyDetail";
 
 import '@elastic/eui/dist/eui_theme_light.css';
 import { EuiProvider } from '@elastic/eui';
@@ -22,6 +22,7 @@ function App() {
           <Route path="/signup" element={<SignupForm />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/army-detail" element={<ArmyDetail />} />
         </Routes>
         <Footer />
       </Router>
