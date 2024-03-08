@@ -3,9 +3,7 @@ import './Profile.css';
 import {
     EuiForm,
     EuiFormRow,
-    EuiSelect,
     EuiFieldText,
-    EuiFieldPassword,
     EuiDatePicker,
     EuiButton,
     EuiSpacer,
@@ -86,83 +84,99 @@ const ArmyDetail = () => {
     const inputStyle = { width: '300px' };
     return (
         <div className='background'>
-            <div className='form-content'>
-            <div className='login-logo' style={{ textAlign: 'center', marginBottom: '1px' }}>
-                    <EuiIcon type="user" size="xxl" />
-                    <EuiText>
-                        <h2>Army Details</h2>
-                    </EuiText>
+            <div className="form-content">
+                <div className="left-side">
+                    <div className="army-detail-image"></div>
                 </div>
-                <EuiForm component="form"  onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '5px' }}>    
-                    <EuiFormRow label={<span style={{ color: '#e43164' }}>Rank</span>} style={{ textAlign: 'center',color: 'blue', marginBottom: '5px' }} isRequiblue>
-                        <EuiFieldText
-                            name="rank"
-                            value={formData.rank}
-                            onChange={(e) => handleChange('rank', e.target.value)}
-                            style={inputStyle}
-                        />
-                    </EuiFormRow>
-
-                    <EuiFormRow label={<span style={{ color: '#e43164' }}>Division</span>} style={{ textAlign: 'center', marginBottom: '5px' }}>
-                        <EuiFieldText
-                            name="division"
-                            value={formData.division}
-                            onChange={(e) => handleChange('division', e.target.value)}
-                            style={inputStyle}
-                        />
-                    </EuiFormRow>
-
-                    <EuiFormRow label={<span style={{ color: '#e43164' }}>Service_number</span>} style={{ textAlign: 'center', marginBottom: '5px' }}>
-                        <EuiFieldText
-                            type="service_number"
-                            name="service_number"
-                            value={formData.email}
-                            onChange={(e) => handleChange('service_number', e.target.value)}
-                            style={inputStyle}
-                        />
-                    </EuiFormRow>
-
-                    <EuiFormRow label={<span style={{ color: '#e43164' }}>Unit</span>} style={{ textAlign: 'center', marginBottom: '5px' }}>
-                        <EuiSelect
-                            name="unit"
-                            value={formData.unit}
-                            onChange={(e) => handleChange('unit', e.target.value)}
-                            style={inputStyle}
-                        />
-                    </EuiFormRow>
-
-                    <EuiFormRow label={<span style={{ color: '#e43164' }}>Enlistment_date</span>} style={{ textAlign: 'center', marginBottom: '5px' }}>
-                        <div style={inputStyle}>
-                            <EuiDatePicker
-                                name="enlistment_date"
-                                selected={formData.enlistment_date}
-                                onChange={(date) => handleDateChange('enlistment_date', date)}
-                                dateFormat="YYYY-MM-DD"
+                <div className="right-side">
+                    <div className='army-detail' style={{ textAlign: 'center', marginBottom: '0%' }}>
+                        <EuiIcon type="user" size="xl"/>
+                            <EuiText>
+                                <h4>Army DetailForm</h4>
+                            </EuiText>
+                    </div>        
+                    <EuiForm component="form"  onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '0px' }}>    
+                        <EuiFormRow label={<span style={{ color: '#e43164' }}>Rank</span>} style={{ textAlign: 'center',color: 'blue', marginBottom: '0px' }} isRequiblue>
+                            <EuiFieldText
+                                name="rank"
+                                value={formData.rank}
+                                onChange={(e) => handleChange('rank', e.target.value)}
+                                style={inputStyle}
                             />
-                        </div>
-                    </EuiFormRow>
+                        </EuiFormRow>
 
-                    <EuiFormRow label={<span style={{ color: '#e43164' }}>Discharge_date</span>} style={{ textAlign: 'center', marginBottom: '5px' }}>
-                        <EuiFieldPassword
-                            name="discharge_date"
-                            value={formData.discharge_date}
-                            onChange={(e) => handleChange('discharge_date', e.target.value)}
-                            style={inputStyle}
-                        />
-                    </EuiFormRow>
+                        <EuiFormRow label={<span style={{ color: '#e43164' }}>Division</span>} style={{ textAlign: 'center', marginBottom: '0px' }}>
+                            <EuiFieldText
+                                name="division"
+                                value={formData.division}
+                                onChange={(e) => handleChange('division', e.target.value)}
+                                style={inputStyle}
+                            />
+                        </EuiFormRow>
 
-                    <EuiSpacer size="m" />
-                    <EuiButton type="submit" fill>
-                        Sign Up
-                    </EuiButton>
-                    {success && (
-                        <p className="success-message">{success}</p>
-                    )}
-                    {error && <p className="error-message">{error}</p>}
-                </EuiForm>
+                        <EuiFormRow label={<span style={{ color: '#e43164' }}>Service_number</span>} style={{ textAlign: 'center', marginBottom: '0px' }}>
+                            <EuiFieldText
+                                type="service_number"
+                                name="service_number"
+                                value={formData.email}
+                                onChange={(e) => handleChange('service_number', e.target.value)}
+                                style={inputStyle}
+                            />
+                        </EuiFormRow>
+
+                        <EuiFormRow label={<span style={{ color: '#e43164' }}>Unit</span>} style={{ textAlign: 'center', marginBottom: '0px' }}>
+                            <EuiFieldText
+                                name="unit"
+                                value={formData.unit}
+                                onChange={(e) => handleChange('unit', e.target.value)}
+                                style={inputStyle}
+                            />
+                        </EuiFormRow>
+
+                        <EuiFormRow label={<span style={{ color: '#e43164' }}>Enlistment_date</span>} style={{ textAlign: 'center', marginBottom: '0px' }}>
+                            <div style={inputStyle}>
+                                <EuiDatePicker
+                                    name="enlistment_date"
+                                    selected={formData.enlistment_date}
+                                    onChange={(date) => handleDateChange('enlistment_date', date)}
+                                    dateFormat="YYYY-MM-DD"
+                                />
+                            </div>
+                        </EuiFormRow>
+
+                        <EuiFormRow label={<span style={{ color: '#e43164' }}>Discharge_date</span>} style={{ textAlign: 'center', marginBottom: '0px' }}>
+                            <div style={inputStyle}>
+                                <EuiDatePicker
+                                    name="discharge_date"
+                                    value={formData.discharge_date}
+                                    onChange={(e) => handleChange('discharge_date', e.target.value)}
+                                    style={inputStyle}
+                                />
+                                </div>
+                        </EuiFormRow>
+
+                        <EuiFormRow label={<span style={{ color: '#e43164' }}>Awards</span>} style={{ textAlign: 'center', marginBottom: '0px' }}>
+                            <EuiFieldText
+                                name="awards"
+                                value={formData.awards}
+                                onChange={(e) => handleChange('awards', e.target.value)}
+                                style={inputStyle}
+                            />
+                        </EuiFormRow>
+
+                        <EuiSpacer size="s" />
+                        <EuiButton type="submit" fill>
+                            Submit
+                        </EuiButton>
+                        {success && (
+                            <p className="success-message">{success}</p>
+                        )}
+                        {error && <p className="error-message">{error}</p>}
+                    </EuiForm>               
+
                 </div>
-        </div>
+            </div>
+        </div>        
     );
 };
-
 export default ArmyDetail;

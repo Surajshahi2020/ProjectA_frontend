@@ -1,0 +1,26 @@
+.army-detail-image {
+    background-image: url("../../images/cartoon-army.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 350px;
+    height: 600px;
+    margin-top: 0%;
+    border-radius: 10%;
+    transition: transform 3s; 
+}
+
+.army-detail-image:hover {
+    animation: rotate360 3s infinite; 
+}
+
+@keyframes rotate360 {
+    to {
+        transform: rotateY(360deg); 
+    }
+}
+
+.form-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
