@@ -9,9 +9,11 @@ import {
     EuiSpacer,
     EuiText,
     EuiIcon,
+    EuiSelect,
+    EuiFilePicker,
 } from '@elastic/eui';
 
-const ArmyDetail = () => {
+const EducationDetail = () => {
     const [formData, setFormData] = useState({
         rank: '',
         division: '',
@@ -36,7 +38,10 @@ const ArmyDetail = () => {
             [fieldName]: date,
         });
     };
-    
+
+    const handleFileChange = (fieldName, files) => {
+        console.log("image s")
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -81,89 +86,90 @@ const ArmyDetail = () => {
         }
     };
 
+    const degreeOptions = [
+        { value: 'ten', text: 'SLC'},
+        { value: 'twelve', text: '+2' },
+        { value: 'bachelor', text: 'Bachelor' },
+    ];
+
     const inputStyle = { width: '300px' };
     return (
         <div className='background'>
             <div className="form-content">
                 
                 <div className="left-side">
-                    <div className="army-detail-image"></div>
+                    <div className="book-detail-image"></div>
                 </div>
 
                 <div className="right-side">
                     <div className='army-detail' style={{ textAlign: 'center', marginBottom: '0%' }}>
                         <EuiIcon type="user" size="xl"/>
                             <EuiText>
-                                <h4>Army Detail</h4>
+                                <h4>Education Detail</h4>
                             </EuiText>
                     </div>        
                     <EuiForm component="form"  onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '0px' }}>    
-                        <EuiFormRow label={<span style={{ color: '#e43164' }}>Rank</span>} style={{ textAlign: 'center',color: 'blue', marginBottom: '0px' }} isRequiblue>
-                            <EuiFieldText
-                                name="rank"
-                                value={formData.rank}
-                                onChange={(e) => handleChange('rank', e.target.value)}
+                        <EuiFormRow label={<span style={{ color: '#e43164' }}>Degree Type</span>} style={{ textAlign: 'center',color: 'blue', marginBottom: '0px' }} isRequiblue>
+                            <EuiSelect
+                                name="degree_type"
+                                options={degreeOptions}
+                                value={formData.degree_type}
+                                onChange={(e) => handleChange('degree_type', e.target.value)}
                                 style={inputStyle}
                             />
                         </EuiFormRow>
 
-                        <EuiFormRow label={<span style={{ color: '#e43164' }}>Division</span>} style={{ textAlign: 'center', marginBottom: '0px' }}>
+                        <EuiFormRow label={<span style={{ color: '#e43164' }}>Institution</span>} style={{ textAlign: 'center', marginBottom: '0px' }}>
                             <EuiFieldText
-                                name="division"
-                                value={formData.division}
-                                onChange={(e) => handleChange('division', e.target.value)}
+                                name="institution"
+                                value={formData.institution}
+                                onChange={(e) => handleChange('institution', e.target.value)}
                                 style={inputStyle}
                             />
                         </EuiFormRow>
 
-                        <EuiFormRow label={<span style={{ color: '#e43164' }}>Service_number</span>} style={{ textAlign: 'center', marginBottom: '0px' }}>
+                        <EuiFormRow label={<span style={{ color: '#e43164' }}>Board_university</span>} style={{ textAlign: 'center', marginBottom: '0px' }}>
                             <EuiFieldText
-                                type="service_number"
-                                name="service_number"
+                                type="board_university"
+                                name="board_university"
                                 value={formData.email}
-                                onChange={(e) => handleChange('service_number', e.target.value)}
+                                onChange={(e) => handleChange('board_university', e.target.value)}
                                 style={inputStyle}
                             />
                         </EuiFormRow>
 
-                        <EuiFormRow label={<span style={{ color: '#e43164' }}>Unit</span>} style={{ textAlign: 'center', marginBottom: '0px' }}>
-                            <EuiFieldText
-                                name="unit"
-                                value={formData.unit}
-                                onChange={(e) => handleChange('unit', e.target.value)}
-                                style={inputStyle}
-                            />
-                        </EuiFormRow>
-
-                        <EuiFormRow label={<span style={{ color: '#e43164' }}>Enlistment_date</span>} style={{ textAlign: 'center', marginBottom: '0px' }}>
+                        <EuiFormRow label={<span style={{ color: '#e43164' }}>Start_date</span>} style={{ textAlign: 'center', marginBottom: '0px' }}>
                             <div style={inputStyle}>
                                 <EuiDatePicker
-                                    name="enlistment_date"
-                                    selected={formData.enlistment_date}
-                                    onChange={(date) => handleDateChange('enlistment_date', date)}
+                                    name="start_date"
+                                    value={formData.start_date}
+                                    onChange={(e) => handleChange('start_date', e.target.value)}
+                                    style={inputStyle}
+                                />
+                            </div>    
+                        </EuiFormRow>
+
+                        <EuiFormRow label={<span style={{ color: '#e43164' }}>End_date</span>} style={{ textAlign: 'center', marginBottom: '0px' }}>
+                            <div style={inputStyle}>
+                                <EuiDatePicker
+                                    name="end_date"
+                                    selected={formData.end_date}
+                                    onChange={(date) => handleDateChange('end_date', date)}
                                     dateFormat="YYYY-MM-DD"
                                 />
                             </div>
                         </EuiFormRow>
 
-                        <EuiFormRow label={<span style={{ color: '#e43164' }}>Discharge_date</span>} style={{ textAlign: 'center', marginBottom: '0px' }}>
+                        <EuiFormRow label={<span style={{ color: '#e43164' }}>Certificate Images</span>} style={{ textAlign: 'center', marginBottom: '0px' }}>
                             <div style={inputStyle}>
-                                <EuiDatePicker
-                                    name="discharge_date"
-                                    value={formData.discharge_date}
-                                    onChange={(e) => handleChange('discharge_date', e.target.value)}
-                                    style={inputStyle}
+                                <EuiFilePicker
+                                    id="certificate_images"
+                                    onChange={(files) => handleFileChange('certificate_images', files)}
+                                    display="default"
+                                    accept={['.jpg', '.jpeg', '.png']}
+                                    multiple
                                 />
-                                </div>
-                        </EuiFormRow>
-
-                        <EuiFormRow label={<span style={{ color: '#e43164' }}>Awards</span>} style={{ textAlign: 'center', marginBottom: '0px' }}>
-                            <EuiFieldText
-                                name="awards"
-                                value={formData.awards}
-                                onChange={(e) => handleChange('awards', e.target.value)}
-                                style={inputStyle}
-                            />
+                            </div>
                         </EuiFormRow>
 
                         <EuiSpacer size="s" />
@@ -181,4 +187,4 @@ const ArmyDetail = () => {
         </div>        
     );
 };
-export default ArmyDetail;
+export default EducationDetail;

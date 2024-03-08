@@ -7,10 +7,10 @@ import SignupForm from "./components/Signup/Signup";
 import Login from "./components/Login/Login";
 import Dashboard from "./components/Dashboard/Dashboard";
 import ArmyDetail from "./pages/Profile/ArmyDetail";
+import EducationDetail from "./pages/Profile/EducationDetail";
 
 import '@elastic/eui/dist/eui_theme_light.css';
 import { EuiProvider } from '@elastic/eui';
-
 
 function App() {
   return (
@@ -23,6 +23,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/army-detail" element={<ArmyDetail />} />
+          <Route path="/education-detail" element={<EducationDetail />} />
         </Routes>
         <Footer />
       </Router>
