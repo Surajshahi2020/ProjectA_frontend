@@ -42,13 +42,13 @@ const Navbar = () => {
 
             <EuiHeaderSectionItem>
                 <EuiHeaderLinks>
-                    <EuiHeaderLink href="dashboard">Dashboard</EuiHeaderLink>
-                    <EuiHeaderLink href="#feature2">Training</EuiHeaderLink>
-                    <EuiHeaderLink href="#feature3">Promotion</EuiHeaderLink>
-                    <EuiHeaderLink href="#feature3">Tracking</EuiHeaderLink>
-                    <EuiHeaderLink href="#feature3">Budget</EuiHeaderLink>
-                    <EuiHeaderLink href="#feature3">Mission</EuiHeaderLink>
-                    <EuiHeaderLink href="#feature9">Communication</EuiHeaderLink>
+                    <EuiHeaderLink href="dashboard" style={{ textDecoration: 'none' }}>Dashboard</EuiHeaderLink>
+                    <EuiHeaderLink href="#feature2" style={{ textDecoration: 'none' }}>Training</EuiHeaderLink>
+                    <EuiHeaderLink href="#feature3" style={{ textDecoration: 'none' }}>Promotion</EuiHeaderLink>
+                    <EuiHeaderLink href="#feature3" style={{ textDecoration: 'none' }}>Tracking</EuiHeaderLink>
+                    <EuiHeaderLink href="#feature3" style={{ textDecoration: 'none' }}>Budget</EuiHeaderLink>
+                    <EuiHeaderLink href="#feature3" style={{ textDecoration: 'none' }}>Mission</EuiHeaderLink>
+                    <EuiHeaderLink href="#feature9" style={{ textDecoration: 'none' }}>Communication</EuiHeaderLink>
                     <EuiHeaderLink href='' onClick={handleProfileClick}>
                         <div className="profile-image">
                         </div>
@@ -73,14 +73,14 @@ const Navbar = () => {
                     <EuiFlexGroup responsive={false} gutterSize="s" alignItems="center">
                         <EuiFlexItem>
                             <EuiText>
-                                <EuiButton onClick={handleLogin} size="s" fullWidth fill color='primary'>
+                                <EuiButton onClick={handleLogin} size="s" fullWidth fill color='primary' style={{ textDecoration: 'none' }}>
                                     Login
                                 </EuiButton>
                             </EuiText>
                         </EuiFlexItem>
                         <EuiFlexItem>
                             <EuiText>
-                                <EuiButton onClick={handleSignup} size="s" fullWidth fill color='danger'>
+                                <EuiButton onClick={handleSignup} size="s" fullWidth fill color='danger' style={{ textDecoration: 'none' }}>
                                     Signup
                                 </EuiButton>
                             </EuiText>
